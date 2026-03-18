@@ -1,0 +1,14 @@
+- type: log
+  # Mettre à true pour activer cette l'entrée Filebeat dans Logstash
+  enabled: true
+  # Chemins qui doivent être explorés et récupérés
+  paths:
+    - /var/log/*.log
+
+# On ne souhaite plus envoyer directement nos données à elasticsearch (à commenter comme ci-dessous)    
+#output.elasticsearch:
+  #hosts: ["localhost:9200"]
+
+# On souhaite à la place envoyer directement nos données à Logstash (à décommenter comme ci-dessous)    
+output.logstash:
+  hosts: ["localhost:5044"]
